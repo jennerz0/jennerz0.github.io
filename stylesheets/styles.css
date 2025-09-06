@@ -1,4 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Noto+Sans:400,400italic,700italic,700);
+.social-icons a { margin-right: 8px; display: inline-block; }
+.social-icons i { font-size: 20px; vertical-align: middle; }
 
 body {
   background-color: #fff;
