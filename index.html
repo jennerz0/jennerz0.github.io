@@ -1,297 +1,350 @@
-<!--<!doctype html>
-<html>-->
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-<!-- Meta tags for search engines to crawl -->
-<meta name="robots" content="index,follow">
+<!DOCTYPE html>
+<html lang="en">
 <head>
- <link rel="Shortcut Icon" href="./logo/ucsd_logo.png" sizes=16x16  type="image/x-icon" />
- <link rel="Bookmark" href="./logo/ucsd_logo.png" sizes=16x16 type="image/x-icon" />
-<!--<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="chrome=1">-->
-  <title>Jingyi Zhang</title>
-	<style>
-@media screen and (max-device-width: 480px){
-  body{
-    -webkit-text-size-adjust: none;
-  }
-}
-p { font-size : 16px; }
-h1 { font-size : 34px; margin : 0; padding : 0; }
-h2 { font-size : 20px; margin : 0; padding : 0; }
-h3 { font-size : 18px; margin : 8; padding : 0; }
-body { padding : 0; font-family : Arial; font-size : 16px; background-color : #fff; }
-.title { width : 650px; margin : 20px auto; }
-.container { width : 700px; margin : 20px auto; border-radius: 10px;  background-color : #fff; padding : 20px;  clear:both;}
-#bio {
-    padding-top : 40px;
-}
-#me { border : 0 solid black; margin-bottom : 50px; border-radius : 10px; }
-#sidebar { margin-left : 25px; border : 0 solid black; float : right; margin-bottom : 0;}
-a { text-decoration : none; }
-a:hover { text-decoration : underline; }
-a, a:visited { color : #0050e7; }
-.publogo { width: 100 px; margin-right : 10px; float : left; border : 0;}
-.publication { clear : left; padding-bottom : 0px; }
-.publication p { height : 100px; padding-top : 0px; font-weight: normal;}
-.publication strong a { color : #0000A0; }
-.publication .links { position :relative ; top : 10px }
-.publication .links a { margin-right : 5px; font-size: 15px; font-weight: normal}
-.codelogo { margin-right : 10px; float : left; border : 0;}
-.code { clear : left; padding-bottom : 10px; vertical-align :middle;} 
-.code .download a { display : block; margin : 0 15px; float : left;}
-.code strong a { color : #000; }
-.external a { margin : 0 10px; }
-.external a.first { margin : 0 10px 0 0; }
-li, ul {font-weight: normal;}
-.media-block {
-  width: 90%;
-  margin: 0 auto; 
-}
-.media-block img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border: 0;
-}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jingyi Zhang</title>
+    <meta name="robots" content="index,follow">
+    <link rel="Shortcut Icon" href="./logo/ucsd_logo.png" sizes=16x16 type="image/x-icon" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ=" crossorigin="anonymous">
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            background-color: #f0f2f5; 
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        p { font-size: 16px; margin-bottom: 1em; }
+        h1 { font-size: 30px; margin: 0 0 10px; padding: 0; }
+        h2 { font-size: 24px; margin: 25px 0 15px; padding: 0; color: #333; }
+        a { text-decoration: none; color: #0050e7; }
+        a:hover { text-decoration: underline; }
+        hr { border: none; border-top: 1px solid #eee; margin: 30px 0; }
+
+        .main-layout {
+            display: flex;
+            width: 90%; 
+            max-width: 1200px;
+            margin: 40px auto;
+            border-radius: 10px;
+            overflow: hidden; 
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
+            background-color: #fff; 
+        }
 
 
-.social-icons {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 0;
-}
-.social-icons a {
-  flex: 1;            
-  text-align: center;  
-  text-decoration: none;
-}
-.social-icons i {
-  font-size: 32px;   
-  line-height: 1;
-}
+        .left-panel {
+            position: sticky; 
+            top: 40px; 
+            align-self: flex-start; 
+            width: 280px; 
+            padding: 30px 20px;
+            text-align: center;
+            box-sizing: border-box;
+            background-color: #ffffff; 
+            height: fit-content; 
+            border-right: 1px solid #eee; 
+        }
 
-header h2 { margin: 0 0 .75rem; }
-header p  { margin: .75rem 0; }
-header { text-align: center; }
+        .left-panel h2 {
+            font-size: 26px;
+            margin-top: 0;
+            margin-bottom: 20px;
+            color: #222;
+        }
+
+        .media-block {
+            margin-bottom: 20px;
+        }
+        .media-block img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover; 
+            display: block;
+            margin: 0 auto;
+            border-radius: 50%; 
+        }
+        .left-panel p {
+            font-size: 15px;
+            line-height: 1.5;
+            color: #555;
+            margin-bottom: 15px;
+        }
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .social-icons a {
+            font-size: 20px; 
+            color: #0050e7;
+            transition: color 0.3s ease;
+        }
+        .social-icons a:hover {
+            color: #007bff;
+        }
 
 
-</style>
-<link rel="stylesheet" href="stylesheets/styles.css">
-<link rel="stylesheet" href="stylesheets/pygment_trac.css">
+        .right-content {
+            flex-grow: 1;
+            padding: 40px; 
+            background-color: #f9f9f9; 
+            box-sizing: border-box;
+        }
+
+        .content-section h2 {
+            margin-top: 0; 
+            font-size: 22px;
+            color: #333;
+            border-bottom: 2px solid #0050e7;
+            padding-bottom: 5px;
+            margin-bottom: 25px;
+        }
+        .content-section p {
+            text-align: justify;
+            margin-bottom: 20px;
+            color: #444;
+        }
+
+        .publication {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 30px;
+            gap: 20px;
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+        .publogo {
+            flex-shrink: 0;
+            width: 350px; 
+            height: auto;
+            border-radius: 5px;
+            object-fit: contain;
+            padding: 5px;
+            border: 1px solid #eee;
+        }
+        .publication-details {
+            flex-grow: 1;
+        }
+        .publication-details strong a {
+            font-size: 17px;
+            line-height: 1.4;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .publication-details em {
+            display: block;
+            font-size: 14px;
+            color: #777;
+            margin-bottom: 8px;
+        }
+        .publication-details .links a {
+            margin-right: 12px;
+            font-size: 13px;
+            color: #0066cc;
+        }
 
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ=" crossorigin="anonymous">
+        ul[style*="list-style: none"] {
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+        ul[style*="list-style: none"] li {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+            margin-bottom: 15px;
+        }
+        ul[style*="list-style: none"] li div[style*="display:flex"] {
+            margin-bottom: 5px;
+        }
+        ul[style*="list-style: none"] li div[style*="margin-top:5px"] {
+            font-size: 15px;
+            color: #444;
+        }
 
 
-<meta name="viewport" content="width=device-width">
-<script async="" src="./analytics.js"></script>
+        @media (max-width: 992px) {
+            .main-layout {
+                flex-direction: column; 
+                width: 95%;
+                margin: 20px auto;
+            }
+            .left-panel {
+                position: relative; 
+                width: 100%;
+                height: auto;
+                border-right: none;
+                border-bottom: 1px solid #eee;
+                padding: 20px;
+            }
+            .right-content {
+                margin-left: 0; 
+                padding: 30px 20px;
+            }
+            .media-block img {
+                width: 120px;
+                height: 120px;
+            }
+        }
+        @media (max-width: 768px) {
+            h1 { font-size: 26px; }
+            h2 { font-size: 20px; }
+            .left-panel { padding: 15px; }
+            .right-content { padding: 20px; }
+            .publication { flex-direction: column; align-items: center; }
+            .publogo { margin-bottom: 10px; float: none; width: 80%; max-width: 150px; }
+            .publication-details { text-align: center; }
+            .publication-details strong a { font-size: 16px; }
+            .publication-details .links { margin-top: 10px; }
+        }
+    </style>
 </head>
+
 <body>
-<div class="wrapper">
-<header>
-  <h2>Jingyi Zhang</h2>
-
-  <div class="media-block">
-    <img src="sub_img/jingyizhang.png" alt="Jingyi Zhang">
-  </div>
-
-  <p>
-    <small>📍 San Diego, California, USA</small><br>
-    <small>📧 joyzhang0806 at gmail.com</small><br>
-    <small>📧 jiz290 at ucsd.edu</small><br>
-  </p>
-
-  <div class="media-block">
-    <div class="social-icons">
-      <a href="https://scholar.google.com/citations?user=LtgJZocAAAAJ&hl=en"
-         target="_blank" rel="noopener" aria-label="Google Scholar" title="Google Scholar">
-        <i class="ai ai-google-scholar"></i>
-      </a>
-
-      <a href="https://github.com/jennerz0"
-         target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">
-        <i class="fab fa-github"></i>
-      </a>
-
-      <a href="https://www.linkedin.com/in/jingyizz6/"
-         target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
-        <i class="fab fa-linkedin"></i>
-      </a>
-    </div>
-  </div>
-</header>
-
-
-
-
-<section>
-
-<h2>
-<a id="Biography-page" class="anchor" href="#biography-pages" aria-hidden="true"><span class="octicon octicon-link"></span></a>About Me</h2>
-<div style="text-align: justify; display: block; margin-right: auto;">
-<p>
-<br>I am a master student in University of California, San Diego, advised by Tajana Rosing.
-My current research mainly focus on the intersection of computational photography and AI. I co-design camera ISP and deep learning models to create more powerful and efficient imaging systems.
-
-<hr />
-</p>
-
-
-
-
-<div class="container">
-<h2><a id="reaserch-page" class="anchor" href="#reaserch-page" aria-hidden="true"><span class="octicon octicon-link"></span></a>🖨️Publications & Preprints</h2>
-        <be>
-	
-	<div class="publication">
-            <img src="logo/waterwave_logo.png" onmouseover="this.src='logo/waterwave_logo.png';" onmouseout="this.src='logo/waterwave_logo.png';" class="publogo"  width="300 px">
-            <p>     
-	
-                <strong>
-                    <a href="">WaterWave: Bridging Underwater Image Enhancement into Video Streams via Wavelet-based Temporal Consistency Field.</a>
-                </strong>
-		  <br> 
-		<em><b>TNNLS, under review <a href="" target="_blank"><font color="#ff0000"></font></a></b></em>
-                <br> 
-              Qi Zhu, Jingyi Zhang, Naishan Zheng, Wei Yu, JingHao Zhang, Deyi Ji, and Feng Zhao. 
-                <br>
-                <span class="links">
-                    <a href="">PDF</a>| 
-		    <!-- <a href="https://github.com/zqcrafts/WaterWave">Project Page</a>| 	 -->
-                    <a href="https://github.com/zqcrafts/WaterWave">Code</a>
-                </span>
+    <div class="main-layout">
+        <header class="left-panel">
+            <h2>Jingyi Zhang</h2>
+            <div class="media-block">
+                <img src="sub_img/jingyizhang.png" alt="Jingyi Zhang's photo">
+            </div>
+            <p>
+                <small>📍 San Diego, CA, USA</small><br>
+                <small>📧 joyzhang0806 at gmail.com</small><br>
+                <small>📧 jiz290 at ucsd.edu</small><br>
             </p>
-          </div>
-          <br>
-          <br>
-            <br>
-	<br />
-	<br />
-	<br />
-	
-	
-	<div class="publication">
-            <img src="logo/eern_logo.png" onmouseover="this.src='logo/eern_logo.png';" onmouseout="this.src='logo/eern_logo.png';" class="publogo"  width="300 px">
-            <p>     
-	
-                <strong>
-                    <a href="">EERN: Efficient Enhanced Residual Network</a>
-                </strong>
-		  <br> 
-		<em><b>CVPR Workshops, 2024 <a href="" target="_blank"><font color="#ff0000"></font></a></b></em>
-                <br> 
-              Jingyi Zhang, Baiang Li, Qi Zhu, Xiaogang Xu, Dan Guo, and Chunle Guo.
-                <br>
-                <span class="links">
-                    <a href="https://openaccess.thecvf.com/content/CVPR2024W/NTIRE/papers/Ren_The_Ninth_NTIRE_2024_Efficient_Super-Resolution_Challenge_Report_CVPRW_2024_paper.pdf">PDF</a>| 
-                    <a href="https://github.com/jennerz0/EERN">Code</a>
-                </span>
-            </p>
-          </div>
-          <br>
-          <br>
-	<br />
-	<br />
-	
+            <div class="social-icons">
+                <a href="https://scholar.google.com/citations?user=LtgJZocAAAAJ&hl=en" target="_blank" rel="noopener" aria-label="Google Scholar">
+                    <i class="ai ai-google-scholar"></i>
+                </a>
+                <a href="https://github.com/jennerz0" target="_blank" rel="noopener" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/jingyizz6/" target="_blank" rel="noopener" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </div>
+        </header>
 
+        <section class="right-content">
+            <h2 id="about-me-section">About Me</h2>
+            <div style="text-align: justify;">
+                <p>
+                    I am a master student in University of California, San Diego, advised by Tajana Rosing.
+                    My current research mainly focus on the intersection of computational photography and AI. I co-design camera ISP and deep learning models to create more powerful and efficient imaging systems.
+                </p>
+                <hr />
+            </div>
 
-	
-        <div class="publication">
-            <img src="./logo/regformer_logo.png" class="publogo" width="300 px">
-            <p> 
-                <strong>
-                    <a href="">Exploiting Regional Information Transformer for Single Image Deraining</a>
-                </strong>
-		  <br>
-		<em><b>TMM, 2025</b></em>
-                <br>
-                Baiang Li, Zhao Zhang, Huan Zheng, Xiaogang Xu, Yanyan Wei, Jingyi Zhang, Jicong Fan, and Meng Wang.
-                <br>
-                <span class="links">
-                    <a href="https://arxiv.org/pdf/2402.16033">PDF</a>| 
-                    <a href="https://github.com/ztMotaLee/Regformer">Code</a>
-                </span>
-            </p>
-          </div>
-          <br>
-          <br>
-          <br>
-          <br>
-	<br />
-	<br />
-	<br />
-	<br />
+            <div class="container">
+                <h2 id="publications-section">🖨️Publications & Preprints</h2>
+                <div class="publication">
+                    <img src="logo/waterwave_logo.png" alt="WaterWave logo" class="publogo">
+                    <div class="publication-details">
+                        <strong><a href="#">WaterWave: Bridging Underwater Image Enhancement into Video Streams via Wavelet-based Temporal Consistency Field.</a></strong>
+                        <br>
+                        <em><b>TNNLS, under review</b></em>
+                        <br>
+                        Qi Zhu, Jingyi Zhang, Naishan Zheng, Wei Yu, JingHao Zhang, Deyi Ji, and Feng Zhao.
+                        <br>
+                        <span class="links">
+                            <a href="#">PDF</a> | <a href="https://github.com/zqcrafts/WaterWave">Code</a>
+                        </span>
+                    </div>
+                </div>
 
+                <div class="publication">
+                    <img src="logo/eern_logo.png" alt="EERN logo" class="publogo">
+                    <div class="publication-details">
+                        <strong><a href="#">EERN: Efficient Enhanced Residual Network</a></strong>
+                        <br>
+                        <em><b>CVPR Workshops, 2024</b></em>
+                        <br>
+                        Jingyi Zhang, Baiang Li, Qi Zhu, Xiaogang Xu, Dan Guo, and Chunle Guo.
+                        <br>
+                        <span class="links">
+                            <a href="https://openaccess.thecvf.com/content/CVPR2024W/NTIRE/papers/Ren_The_Ninth_NTIRE_2024_Efficient_Super-Resolution_Challenge_Report_CVPRW_2024_paper.pdf">PDF</a> | <a href="https://github.com/jennerz0/EERN">Code</a>
+                        </span>
+                    </div>
+                </div>
 
+                <div class="publication">
+                    <img src="./logo/regformer_logo.png" alt="Regformer logo" class="publogo">
+                    <div class="publication-details">
+                        <strong><a href="#">Exploiting Regional Information Transformer for Single Image Deraining</a></strong>
+                        <br>
+                        <em><b>TMM, 2025</b></em>
+                        <br>
+                        Baiang Li, Zhao Zhang, Huan Zheng, Xiaogang Xu, Yanyan Wei, Jingyi Zhang, Jicong Fan, and Meng Wang.
+                        <br>
+                        <span class="links">
+                            <a href="https://arxiv.org/pdf/2402.16033">PDF</a> | <a href="https://github.com/ztMotaLee/Regformer">Code</a>
+                        </span>
+                    </div>
+                </div>
+            </div>
 
-<hr />
+            <hr />
 
+            <h2 id="internships-section">💻Internships</h2>
+            <ul style="list-style: none; padding-left: 0; margin-top: 10px; margin-bottom: 20px;">
+                <li style="margin-bottom: 18px;">
+                    <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap;">
+                        <div style="flex:1; min-width:260px;">
+                            <a href="https://seelab.ucsd.edu/">System Energy Efficiency Lab</a>@<a href="https://ucsd.edu/">University of California, San Diego</a>, San Diego, USA
+                        </div>
+                        <div style="text-align:right; flex-shrink:0; min-width:160px;">April 2025 – Current</div>
+                    </div>
+                    <div style="margin-top:5px;">
+                        Research Assistant<br>
+                        Advisor: <a href="https://cseweb.ucsd.edu/~trosing/">Tajana Rosing</a><br>
+                        Topic: Computational Photography
+                    </div>
+                </li>
+            </ul>
 
+            <ul style="list-style: none; padding-left: 0; margin-top: 10px; margin-bottom: 20px;">
+                <li style="margin-bottom: 18px;">
+                    <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap;">
+                        <div style="flex:1; min-width:260px;">
+                            <a href="https://pi-lab.xyz/">π Research Group</a>@<a href="https://en.nankai.edu.cn/">Nankai University</a>, Tianjin, China
+                        </div>
+                        <div style="text-align:right; flex-shrink:0; min-width:160px;">January 2024 – September 2024</div>
+                    </div>
+                    <div style="margin-top:5px;">
+                        Research Assistant<br>
+                        Advisor: <a href="https://li-chongyi.github.io/">Chongyi Li</a> and <a href="https://mmcheng.net/clguo/">Chunle Guo</a><br>
+                        Topic: Computational Photography
+                    </div>
+                </li>
+            </ul>
 
-		 
-
-
-		 
-<h2>
-<!-- <a id="reaserch-page" class="anchor" href="#reaserch-page" aria-hidden="true"><span class="octicon octicon-link"></span></a>💻Internships</h2> -->
-<h2><a id="internships" class="anchor" href="#internships" aria-hidden="true"><span class="octicon octicon-link"></span></a>💻Internships</h2>
-
- 
-<ul style="list-style: none; padding-left: 0; margin: 10px 0 20px 0;">
-  <li style="margin-bottom: 18px;">
-    <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap;">
-      <div style="flex:1; min-width:260px;">
-        <a href="https://seelab.ucsd.edu/">System Energy Efficiency Lab</a>@<a href="https://ucsd.edu/">University of California, San Diego</a>, San Diego, USA
-      </div>
-      <div style="text-align:right; flex-shrink:0; min-width:160px;">April 2025 – Current</div>
+            <ul style="list-style: none; padding-left: 0; margin-top: 10px; margin-bottom: 20px;">
+                <li style="margin-bottom: 18px;">
+                    <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap;">
+                        <div style="flex:1; min-width:260px;">
+                            <a href="https://ci.hfut.edu.cn/info/1162/14469.htm">Lab for Media Computing</a>@<a href="http://www.hfut.edu.cn/">Hefei University of Technology</a>, Hefei, China
+                        </div>
+                        <div style="text-align:right; flex-shrink:0; min-width:160px;">March 2023 – December 2023</div>
+                    </div>
+                    <div style="margin-top:5px;">
+                        Research Assistant<br>
+                        Advisor: <a href="https://sites.google.com/site/cszzhang">Zhao Zhang</a><br>
+                        Topic: Computational Photography
+                    </div>
+                </li>
+            </ul>
+        </section>
     </div>
-    <div style="margin-top:5px;">
-      Research Assistant<br>
-      Advisor: <a href="https://cseweb.ucsd.edu/~trosing/">Tajana Rosing</a><br>
-      Topic: Computational Photography
-    </div>
-  </li>
-
-<ul style="list-style: none; padding-left: 0; margin: 10px 0 20px 0;">
-  <li style="margin-bottom: 18px;">
-    <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap;">
-      <div style="flex:1; min-width:260px;">
-        <a href="https://pi-lab.xyz/">π Research Group</a>@<a href="https://en.nankai.edu.cn/">Nankai University</a>, Tianjin, China
-      </div>
-      <div style="text-align:right; flex-shrink:0; min-width:160px;">January 2024 – September 2024</div>
-    </div>
-    <div style="margin-top:5px;">
-      Research Assistant<br>
-      Advisor: <a href="https://li-chongyi.github.io/">Chongyi Li</a> and <a href="https://mmcheng.net/clguo/">Chunle Guo</a><br>
-      Topic: Computational Photography
-    </div>
-  </li>
-
-
-<ul style="list-style: none; padding-left: 0; margin: 10px 0 20px 0;">
-  <li style="margin-bottom: 18px;">
-    <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap;">
-      <div style="flex:1; min-width:260px;">
-        <a href="https://ci.hfut.edu.cn/info/1162/14469.htm">Lab for Media Computing</a>@<a href="http://www.hfut.edu.cn/">Hefei University of Technology</a>, Hefei, China
-      </div>
-      <div style="text-align:right; flex-shrink:0; min-width:160px;">March 2023 – December 2023</div>
-    </div>
-    <div style="margin-top:5px;">
-      Research Assistant<br>
-      Advisor: <a href="https://sites.google.com/site/cszzhang">Zhao Zhang</a><br>
-      Topic: Computational Photography
-    </div>
-  </li>
-</ul>
-
-
-
-</section>
-
-</div>
-<!--<script src="javascripts/scale.fix.js"></script>-->
 </body>
-</html>  
+</html>
