@@ -44,6 +44,39 @@ a, a:visited { color : #0050e7; }
 .external a { margin : 0 10px; }
 .external a.first { margin : 0 10px 0 0; }
 li, ul {font-weight: normal;}
+.media-block {
+  width: 90%;
+  margin: 0 auto; 
+}
+.media-block img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 0;
+}
+
+
+.social-icons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0;
+}
+.social-icons a {
+  flex: 1;            
+  text-align: center;  
+  text-decoration: none;
+}
+.social-icons i {
+  font-size: 32px;   
+  line-height: 1;
+}
+
+header h2 { margin: 0 0 .75rem; }
+header p  { margin: .75rem 0; }
+header { text-align: center; }
+
+
 </style>
 <link rel="stylesheet" href="stylesheets/styles.css">
 <link rel="stylesheet" href="stylesheets/pygment_trac.css">
@@ -59,41 +92,40 @@ li, ul {font-weight: normal;}
 <body>
 <div class="wrapper">
 <header>
-<h7>Jingyi Zhang</h7><br><br>
-<div>
-<img src="sub_img/jingyizhang.png" border="0" width="90%"><br></div><br>
+  <h2>Jingyi Zhang</h2>
 
-  
-<p>
-<small>📍 San Diego, California, USA</small><br>
-<small>📧joyzhang0806 at gmail.com</small><br>
-<small>📧jiz290 at ucsd.edu</small><br>
-	
-<!--<a href="https://github.com/Li-Chongyi/" target="_blank">[GitHub]</a>-->  
-<!--<a href="http://dblp.uni-trier.de/pers/hd/l/Li:Chongyi" target="_blank">[DBLP]</a>  <br>-->
-<!-- <a href="https://scholar.google.com/citations?user=LtgJZocAAAAJ&hl=en" target="_blank">[Google Scholar]</a> <br> -->
-<!-- <a href="hhttps://www.pi-lab.xyz/" target="_blank">[&pi; Research Group]</a> -->
-</p> <br>
-	
+  <div class="media-block">
+    <img src="sub_img/jingyizhang.png" alt="Jingyi Zhang">
+  </div>
 
-<div class="social-icons">
-  <a href="https://scholar.google.com/citations?user=LtgJZocAAAAJ&hl=en"
-     target="_blank" rel="noopener" aria-label="Google Scholar" title="Google Scholar">
-    <i class="ai ai-google-scholar"></i>
-  </a>
+  <p>
+    <small>📍 San Diego, California, USA</small><br>
+    <small>📧 joyzhang0806 at gmail.com</small><br>
+    <small>📧 jiz290 at ucsd.edu</small><br>
+  </p>
 
-  <a href="https://github.com/jennerz0"
-     target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">
-    <i class="fab fa-github"></i>
-  </a>
+  <div class="media-block">
+    <div class="social-icons">
+      <a href="https://scholar.google.com/citations?user=LtgJZocAAAAJ&hl=en"
+         target="_blank" rel="noopener" aria-label="Google Scholar" title="Google Scholar">
+        <i class="ai ai-google-scholar"></i>
+      </a>
 
-  <a href="https://www.linkedin.com/in/jingyizz6/"
-     target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
-    <i class="fab fa-linkedin"></i>
-  </a>
-</div>
+      <a href="https://github.com/jennerz0"
+         target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">
+        <i class="fab fa-github"></i>
+      </a>
 
+      <a href="https://www.linkedin.com/in/jingyizz6/"
+         target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </div>
+  </div>
 </header>
+
+
+
 
 <section>
 
@@ -208,7 +240,6 @@ My current research mainly focus on the intersection of computational photograph
 <h2><a id="internships" class="anchor" href="#internships" aria-hidden="true"><span class="octicon octicon-link"></span></a>💻Internships</h2>
 
  
-<!-- Internships (替换后的内容) -->
 <ul style="list-style: none; padding-left: 0; margin: 10px 0 20px 0;">
   <li style="margin-bottom: 18px;">
     <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap;">
