@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ=" crossorigin="anonymous">
     
     <style>
-        /* --- 基础样式 --- */
         body {
             font-family: Arial, sans-serif;
             font-size: 16px;
@@ -23,13 +22,10 @@
         }
         p { font-size: 16px; margin-bottom: 1em; }
         h1 { font-size: 30px; margin: 0 0 10px; padding: 0; }
-        /* 调整 h2 的顶部外边距以统一各区块标题的高度 */
         h2 { font-size: 24px; margin: 25px 0 15px; padding: 0; color: #333; } 
         a { text-decoration: none; color: #0050e7; }
         a:hover { text-decoration: underline; }
         hr { border: none; border-top: 1px solid #eee; margin: 30px 0; }
-
-        /* --- 主布局：无框设计，居中 --- */
         .main-layout {
             display: flex;
             width: 90%; 
@@ -39,7 +35,6 @@
             position: relative; 
         }
 
-        /* --- 左侧面板：作为伪元素的容器，透明背景 --- */
         .left-panel {
             position: sticky; 
             top: 40px; 
@@ -50,12 +45,11 @@
             box-sizing: border-box;
             background-color: transparent; 
             height: fit-content; 
-            border-right: none; /* 移除传统边框 */
+            border-right: none; 
             z-index: 10;
             position: relative; 
         }
 
-        /* --- 关键：自定义两端尖锐、带阴影的垂直分割线 (::after) --- */
         .left-panel::after {
             content: '';
             position: absolute;
@@ -66,20 +60,17 @@
             background-color: #ccc; 
             transform: translateY(-50%); 
             
-            /* 阴影效果 */
+
             box-shadow: 1px 0 5px rgba(0, 0, 0, 0.1); 
-            
-            /* 尖锐形状效果 */
+
             clip-path: polygon(
-                0% 10%,    /* 左上角点：从顶部向下10% */
-                100% 0%,   /* 右上角点：在顶部边缘 */
-                100% 100%, /* 右下角点：在底部边缘 */
-                0% 90%     /* 左下角点：从底部向上10% */
+                0% 10%,   
+                100% 0%,  
+                100% 100%, 
+                0% 90%   
             );
             z-index: 1; 
         }
-        /* --- /自定义分割线 --- */
-
 
         .left-panel h2 {
             font-size: 26px;
@@ -120,7 +111,6 @@
             color: #007bff;
         }
 
-        /* --- 右侧内容：透明背景 --- */
         .right-content {
             flex-grow: 1;
             padding: 40px; 
@@ -128,7 +118,6 @@
             box-sizing: border-box;
         }
 
-        /* --- 导航栏：无框、顶部居中 --- */
         #main-navbar {
             width: 90%; 
             max-width: 1200px;
@@ -149,7 +138,7 @@
             text-decoration: none;
             border-bottom: 2px solid transparent;
         }
-        /* 导航栏对齐右侧内容 */
+
         #main-navbar a:first-child {
             margin-left: 320px; 
         }
@@ -162,7 +151,7 @@
             color: #0050e7 !important;
             border-bottom: 2px solid #0050e7 !important;
         }
-        /* --- ---------------- --- */
+
 
 
         .content-section h2 {
@@ -179,7 +168,6 @@
             color: #444;
         }
 
-        /* publication 和列表项的背景和阴影保持不变 (作为内容块内的独立元素) */
         .publication {
             display: flex;
             align-items: flex-start;
@@ -239,7 +227,6 @@
             color: #444;
         }
 
-        /* --- 响应式布局 --- */
         @media (max-width: 992px) {
             .main-layout {
                 flex-direction: column; 
@@ -255,7 +242,7 @@
                 border-bottom: 1px solid #eee; 
                 padding: 20px;
             }
-            /* 移动端不显示自定义垂直分割线 */
+
             .left-panel::after {
                 display: none; 
             }
