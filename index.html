@@ -23,12 +23,13 @@
         }
         p { font-size: 16px; margin-bottom: 1em; }
         h1 { font-size: 30px; margin: 0 0 10px; padding: 0; }
-        h2 { font-size: 24px; margin: 25px 0 15px; padding: 0; color: #333; }
+        /* 调整 h2 的顶部外边距以统一各区块标题的高度 */
+        h2 { font-size: 24px; margin: 25px 0 15px; padding: 0; color: #333; } 
         a { text-decoration: none; color: #0050e7; }
         a:hover { text-decoration: underline; }
         hr { border: none; border-top: 1px solid #eee; margin: 30px 0; }
 
-        /* --- 主布局修改：移除所有边框和背景 --- */
+        /* --- 主布局：无框设计，居中 --- */
         .main-layout {
             display: flex;
             width: 90%; 
@@ -38,7 +39,7 @@
             position: relative; 
         }
 
-        /* --- 左侧面板：作为伪元素的容器，移除边框 --- */
+        /* --- 左侧面板：作为伪元素的容器，透明背景 --- */
         .left-panel {
             position: sticky; 
             top: 40px; 
@@ -49,28 +50,31 @@
             box-sizing: border-box;
             background-color: transparent; 
             height: fit-content; 
-            border-right: none;
+            border-right: none; /* 移除传统边框 */
             z-index: 10;
-            position: relative; /* 必须设置，使其伪元素能相对定位 */
+            position: relative; 
         }
 
-        /* --- 关键：自定义分割线 (伪元素) --- */
+        /* --- 关键：自定义两端尖锐、带阴影的垂直分割线 (::after) --- */
         .left-panel::after {
             content: '';
             position: absolute;
             top: 50%; 
             right: 0; 
-            width: 2px; /* 分割线的宽度 */
-            height: 80%; /* 分割线的高度 */
+            width: 2px; 
+            height: 80%; 
             background-color: #ccc; 
             transform: translateY(-50%); 
-            /* 关键：阴影和尖锐形状 */
+            
+            /* 阴影效果 */
             box-shadow: 1px 0 5px rgba(0, 0, 0, 0.1); 
+            
+            /* 尖锐形状效果 */
             clip-path: polygon(
-                0% 10%,    /* 左上角，向下10% */
-                100% 0%,   /* 右上角，在顶部 */
-                100% 100%, /* 右下角，在底部 */
-                0% 90%     /* 左下角，向上10% */
+                0% 10%,    /* 左上角点：从顶部向下10% */
+                100% 0%,   /* 右上角点：在顶部边缘 */
+                100% 100%, /* 右下角点：在底部边缘 */
+                0% 90%     /* 左下角点：从底部向上10% */
             );
             z-index: 1; 
         }
@@ -116,7 +120,7 @@
             color: #007bff;
         }
 
-        /* --- 右侧内容修改：移除背景色 --- */
+        /* --- 右侧内容：透明背景 --- */
         .right-content {
             flex-grow: 1;
             padding: 40px; 
@@ -124,7 +128,7 @@
             box-sizing: border-box;
         }
 
-        /* --- 导航栏样式修改：移除所有边框和背景/阴影 --- */
+        /* --- 导航栏：无框、顶部居中 --- */
         #main-navbar {
             width: 90%; 
             max-width: 1200px;
@@ -145,7 +149,7 @@
             text-decoration: none;
             border-bottom: 2px solid transparent;
         }
-        /* 关键: 调整第一个导航项的位置，使其与右侧内容区域对齐 */
+        /* 导航栏对齐右侧内容 */
         #main-navbar a:first-child {
             margin-left: 320px; 
         }
@@ -175,7 +179,7 @@
             color: #444;
         }
 
-        /* publication 和列表项的背景和阴影保持不变 */
+        /* publication 和列表项的背景和阴影保持不变 (作为内容块内的独立元素) */
         .publication {
             display: flex;
             align-items: flex-start;
@@ -248,7 +252,7 @@
                 width: 100%;
                 height: auto;
                 border-right: none;
-                border-bottom: 1px solid #eee; /* 移动端保留底部分隔线 */
+                border-bottom: 1px solid #eee; 
                 padding: 20px;
             }
             /* 移动端不显示自定义垂直分割线 */
@@ -289,8 +293,8 @@
 <body>
     <nav id="main-navbar">
         <a href="#" data-target="about-me-content" class="nav-active">About Me</a>
-        <a href="#" data-target="publications-content">Publications & Preprints</a>
-        <a href="#" data-target="reports-content">Challenge Reports</a>
+        <a href="#" data-target="projects-content">Ongoing Projects</a>
+        <a href="#" data-target="publications-content">Publications & Reports</a>
         <a href="#" data-target="internships-content">Internships</a>
     </nav>
     <div class="main-layout">
@@ -330,22 +334,41 @@
                     </div>
                 </div>
 
-                <div id="publications-content" class="content-block" style="display:none;">
-                    <h2 id="publications-section">🖨️Publications & Preprints</h2>
+                <div id="projects-content" class="content-block" style="display:none;">
+                    <h2 id="ongoing-projects-section">🛠️ Ongoing Projects</h2>
+                    
                     <div class="publication">
-                        <img src="logo/waterwave_logo.png" alt="WaterWave logo" class="publogo">
                         <div class="publication-details">
-                            <strong><a href="#">WaterWave: Bridging Underwater Image Enhancement into Video Streams via Wavelet-based Temporal Consistency Field.</a></strong>
+                            <strong><a href="#">Co-designing Efficient ISP and CNN Architectures for Mobile Imaging</a></strong>
                             <br>
-                            <em><b>TNNLS, under review</b></em>
+                            <em><b>Focus: Hardware-aware Computational Photography</b></em>
                             <br>
-                            Qi Zhu, Jingyi Zhang, Naishan Zheng, Wei Yu, JingHao Zhang, Deyi Ji, and Feng Zhao.
+                            Jingyi Zhang, [Collaborator 1], and Tajana Rosing.
                             <br>
                             <span class="links">
-                                <a href="#">PDF</a> | <a href="https://github.com/zqcrafts/WaterWave">Code</a>
+                                <a href="#">[Details Coming Soon]</a>
                             </span>
                         </div>
                     </div>
+
+                    <div class="publication">
+                        <div class="publication-details">
+                            <strong><a href="#">Temporal Consistency in Video Enhancement using Flow Guidance</a></strong>
+                            <br>
+                            <em><b>Focus: Video Enhancement</b></em>
+                            <br>
+                            Jingyi Zhang, [Collaborator 2].
+                            <br>
+                            <span class="links">
+                                <a href="#">[Repository Private]</a>
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+                <div id="publications-content" class="content-block" style="display:none;">
+                    <h2 id="publications-section">🖨️Publications & Preprints</h2>
+                    
                     <div class="publication">
                         <img src="./logo/regformer_logo.png" alt="Regformer logo" class="publogo">
                         <div class="publication-details">
@@ -360,11 +383,8 @@
                             </span>
                         </div>
                     </div>
-                </div>
 
-                <div id="reports-content" class="content-block" style="display:none;">
-                    <hr />
-                    <h2 id="challenge-reports-section">🏆 Challenge Reports</h2>
+                    <h2 id="challenge-reports-section" style="margin-top: 40px;">🏆 Challenge Reports</h2>
                     <div class="publication">
                         <img src="logo/eern_logo.png" alt="EERN logo" class="publogo">
                         <div class="publication-details">
@@ -383,7 +403,6 @@
                 </div>
 
                 <div id="internships-content" class="content-block" style="display:none;">
-                    <hr />
                     <h2 id="internships-section">💻Internships</h2>
                     <ul style="list-style: none; padding-left: 0; margin-top: 10px; margin-bottom: 20px;">
                         <li style="margin-bottom: 18px;">
@@ -396,7 +415,7 @@
                             <div style="margin-top:5px;">
                                 Research Assistant<br>
                                 Advisor: <a href="https://cseweb.ucsd.edu/~trosing/">Tajana Rosing</a><br>
-                                Topic: Computational Photography
+                                Topic: Autonomous Driving, Multimodal and LLM.
                             </div>
                         </li>
                     </ul>
@@ -405,7 +424,7 @@
                         <li style="margin-bottom: 18px;">
                             <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap;">
                                 <div style="flex:1; min-width:260px;">
-                                    <a href="https://pi-lab.xyz/">π Research Group</a>@<a href="https://en.nankai.edu.cn/">Nankai University</a>, Tianjin, China
+                                    <a href="https://pi-lab.xyz/">π: Photography & Imaging Research Group</a>@<a href="https://en.nankai.edu.cn/">Nankai University</a>, Tianjin, China
                                 </div>
                                 <div style="text-align:right; flex-shrink:0; min-width:160px;">January 2024 – September 2024</div>
                             </div>
