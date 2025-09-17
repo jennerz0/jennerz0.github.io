@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ=" crossorigin="anonymous">
     
     <style>
+        /* --- 基础样式 --- */
         body {
             font-family: Arial, sans-serif;
             font-size: 16px;
@@ -27,17 +28,17 @@
         a:hover { text-decoration: underline; }
         hr { border: none; border-top: 1px solid #eee; margin: 30px 0; }
 
+        /* --- 主布局修改：移除所有边框和背景 --- */
         .main-layout {
             display: flex;
             width: 90%; 
             max-width: 1200px;
-            margin: 40px auto;
-            border-radius: 10px;
+            margin: 20px auto 40px auto; 
             overflow: hidden; 
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
-            background-color: #fff; 
+            position: relative; 
         }
 
+        /* --- 左侧面板：作为伪元素的容器，移除边框 --- */
         .left-panel {
             position: sticky; 
             top: 40px; 
@@ -46,10 +47,35 @@
             padding: 30px 20px;
             text-align: center;
             box-sizing: border-box;
-            background-color: #ffffff; 
+            background-color: transparent; 
             height: fit-content; 
-            border-right: 1px solid #eee; 
+            border-right: none;
+            z-index: 10;
+            position: relative; /* 必须设置，使其伪元素能相对定位 */
         }
+
+        /* --- 关键：自定义分割线 (伪元素) --- */
+        .left-panel::after {
+            content: '';
+            position: absolute;
+            top: 50%; 
+            right: 0; 
+            width: 2px; /* 分割线的宽度 */
+            height: 80%; /* 分割线的高度 */
+            background-color: #ccc; 
+            transform: translateY(-50%); 
+            /* 关键：阴影和尖锐形状 */
+            box-shadow: 1px 0 5px rgba(0, 0, 0, 0.1); 
+            clip-path: polygon(
+                0% 10%,    /* 左上角，向下10% */
+                100% 0%,   /* 右上角，在顶部 */
+                100% 100%, /* 右下角，在底部 */
+                0% 90%     /* 左下角，向上10% */
+            );
+            z-index: 1; 
+        }
+        /* --- /自定义分割线 --- */
+
 
         .left-panel h2 {
             font-size: 26px;
@@ -90,12 +116,50 @@
             color: #007bff;
         }
 
+        /* --- 右侧内容修改：移除背景色 --- */
         .right-content {
             flex-grow: 1;
             padding: 40px; 
-            background-color: #f9f9f9; 
+            background-color: transparent; 
             box-sizing: border-box;
         }
+
+        /* --- 导航栏样式修改：移除所有边框和背景/阴影 --- */
+        #main-navbar {
+            width: 90%; 
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: transparent; 
+            padding: 15px 0;
+            border-bottom: none;
+            box-shadow: none; 
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+        #main-navbar a {
+            font-size: 16px;
+            padding: 5px 0;
+            color: #333;
+            transition: color 0.3s ease;
+            text-decoration: none;
+            border-bottom: 2px solid transparent;
+        }
+        /* 关键: 调整第一个导航项的位置，使其与右侧内容区域对齐 */
+        #main-navbar a:first-child {
+            margin-left: 320px; 
+        }
+        
+        #main-navbar a:hover {
+            color: #0050e7;
+        }
+        .nav-active {
+            font-weight: bold;
+            color: #0050e7 !important;
+            border-bottom: 2px solid #0050e7 !important;
+        }
+        /* --- ---------------- --- */
+
 
         .content-section h2 {
             margin-top: 0; 
@@ -105,21 +169,22 @@
             padding-bottom: 5px;
             margin-bottom: 25px;
         }
-        .content-section p {
+        .content-block p {
             text-align: justify;
             margin-bottom: 20px;
             color: #444;
         }
 
+        /* publication 和列表项的背景和阴影保持不变 */
         .publication {
             display: flex;
             align-items: flex-start;
             margin-bottom: 30px;
             gap: 20px;
-            background-color: #fff;
+            background-color: #fff; 
             padding: 15px;
             border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); 
         }
         .publogo {
             flex-shrink: 0;
@@ -170,6 +235,7 @@
             color: #444;
         }
 
+        /* --- 响应式布局 --- */
         @media (max-width: 992px) {
             .main-layout {
                 flex-direction: column; 
@@ -178,11 +244,16 @@
             }
             .left-panel {
                 position: relative; 
+                top: 0;
                 width: 100%;
                 height: auto;
                 border-right: none;
-                border-bottom: 1px solid #eee;
+                border-bottom: 1px solid #eee; /* 移动端保留底部分隔线 */
                 padding: 20px;
+            }
+            /* 移动端不显示自定义垂直分割线 */
+            .left-panel::after {
+                display: none; 
             }
             .right-content {
                 margin-left: 0; 
@@ -191,6 +262,14 @@
             .media-block img {
                 width: 120px;
                 height: 120px;
+            }
+            #main-navbar {
+                width: 95%;
+                padding: 15px 0;
+                margin: 0 auto;
+            }
+            #main-navbar a:first-child {
+                margin-left: 20px; 
             }
         }
         @media (max-width: 768px) {
@@ -208,6 +287,12 @@
 </head>
 
 <body>
+    <nav id="main-navbar">
+        <a href="#" data-target="about-me-content" class="nav-active">About Me</a>
+        <a href="#" data-target="publications-content">Publications & Preprints</a>
+        <a href="#" data-target="reports-content">Challenge Reports</a>
+        <a href="#" data-target="internships-content">Internships</a>
+    </nav>
     <div class="main-layout">
         <header class="left-panel">
             <h2>Jingyi Zhang</h2>
@@ -233,126 +318,126 @@
         </header>
 
         <section class="right-content">
-            <h2 id="about-me-section">About Me</h2>
-            <div style="text-align: justify;">
-                <p>
-                    I am a master student in University of California, San Diego, advised by Tajana Rosing.
-                    My current research mainly focus on the intersection of computational photography and AI. I co-design camera ISP and deep learning models to create more powerful and efficient imaging systems.
-                </p>
-                <hr />
-            </div>
-
             <div class="container">
-                <h2 id="publications-section">🖨️Publications & Preprints</h2>
-
-                <!-- #1 Publication (unchanged) -->
-                <div class="publication">
-                    <img src="logo/waterwave_logo.png" alt="WaterWave logo" class="publogo">
-                    <div class="publication-details">
-                        <strong><a href="#">WaterWave: Bridging Underwater Image Enhancement into Video Streams via Wavelet-based Temporal Consistency Field.</a></strong>
-                        <br>
-                        <em><b>TNNLS, under review</b></em>
-                        <br>
-                        Qi Zhu, Jingyi Zhang, Naishan Zheng, Wei Yu, JingHao Zhang, Deyi Ji, and Feng Zhao.
-                        <br>
-                        <span class="links">
-                            <a href="#">PDF</a> | <a href="https://github.com/zqcrafts/WaterWave">Code</a>
-                        </span>
+                <div id="about-me-content" class="content-block">
+                    <h2 id="about-me-section">About Me</h2>
+                    <div style="text-align: justify;">
+                        <p>
+                            I am a master student in University of California, San Diego, advised by Tajana Rosing.
+                            My current research mainly focus on the intersection of computational photography and AI. I co-design camera ISP and deep learning models to create more powerful and efficient imaging systems.
+                        </p>
+                        <hr />
                     </div>
                 </div>
 
-                <!-- (Second item moved to Challenge Reports) -->
-
-                <!-- #2 (original #3) Publication -->
-                <div class="publication">
-                    <img src="./logo/regformer_logo.png" alt="Regformer logo" class="publogo">
-                    <div class="publication-details">
-                        <strong><a href="#">Exploiting Regional Information Transformer for Single Image Deraining</a></strong>
-                        <br>
-                        <em><b>TMM, 2026</b></em>
-                        <br>
-                        Baiang Li, Zhao Zhang, Huan Zheng, Xiaogang Xu, Yanyan Wei, Jingyi Zhang, Jicong Fan, and Meng Wang.
-                        <br>
-                        <span class="links">
-                            <a href="https://arxiv.org/pdf/2402.16033">PDF</a> | <a href="https://github.com/ztMotaLee/Regformer">Code</a>
-                        </span>
+                <div id="publications-content" class="content-block" style="display:none;">
+                    <h2 id="publications-section">🖨️Publications & Preprints</h2>
+                    <div class="publication">
+                        <img src="logo/waterwave_logo.png" alt="WaterWave logo" class="publogo">
+                        <div class="publication-details">
+                            <strong><a href="#">WaterWave: Bridging Underwater Image Enhancement into Video Streams via Wavelet-based Temporal Consistency Field.</a></strong>
+                            <br>
+                            <em><b>TNNLS, under review</b></em>
+                            <br>
+                            Qi Zhu, Jingyi Zhang, Naishan Zheng, Wei Yu, JingHao Zhang, Deyi Ji, and Feng Zhao.
+                            <br>
+                            <span class="links">
+                                <a href="#">PDF</a> | <a href="https://github.com/zqcrafts/WaterWave">Code</a>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="publication">
+                        <img src="./logo/regformer_logo.png" alt="Regformer logo" class="publogo">
+                        <div class="publication-details">
+                            <strong><a href="#">Exploiting Regional Information Transformer for Single Image Deraining</a></strong>
+                            <br>
+                            <em><b>TMM, 2026</b></em>
+                            <br>
+                            Baiang Li, Zhao Zhang, Huan Zheng, Xiaogang Xu, Yanyan Wei, Jingyi Zhang, Jicong Fan, and Meng Wang.
+                            <br>
+                            <span class="links">
+                                <a href="https://arxiv.org/pdf/2402.16033">PDF</a> | <a href="https://github.com/ztMotaLee/Regformer">Code</a>
+                            </span>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <hr />
-
-            <div class="container">
-                <h2 id="challenge-reports-section">🏆 Challenge Reports</h2>
-
-                <div class="publication">
-                    <img src="logo/eern_logo.png" alt="EERN logo" class="publogo">
-                    <div class="publication-details">
-                        <strong><a href="#">EERN: Efficient Enhanced Residual Network</a></strong>
-                        <br>
-                        <em><b>CVPR Workshops, 2024</b></em>
-                        <br>
-                        Jingyi Zhang, Baiang Li, Qi Zhu, Xiaogang Xu, Dan Guo, and Chunle Guo.
-                        <br>
-                        <span class="links">
-                            <a href="https://openaccess.thecvf.com/content/CVPR2024W/NTIRE/papers/Ren_The_Ninth_NTIRE_2024_Efficient_Super-Resolution_Challenge_Report_CVPRW_2024_paper.pdf">PDF</a> | 
-                            <a href="https://github.com/jennerz0/EERN">Code</a>
-                        </span>
+                <div id="reports-content" class="content-block" style="display:none;">
+                    <hr />
+                    <h2 id="challenge-reports-section">🏆 Challenge Reports</h2>
+                    <div class="publication">
+                        <img src="logo/eern_logo.png" alt="EERN logo" class="publogo">
+                        <div class="publication-details">
+                            <strong><a href="#">EERN: Efficient Enhanced Residual Network</a></strong>
+                            <br>
+                            <em><b>CVPR Workshops, 2024</b></em>
+                            <br>
+                            Jingyi Zhang, Baiang Li, Qi Zhu, Xiaogang Xu, Dan Guo, and Chunle Guo.
+                            <br>
+                            <span class="links">
+                                <a href="https://openaccess.thecvf.com/content/CVPR2024W/NTIRE/papers/Ren_The_Ninth_NTIRE_2024_Efficient_Super-Resolution_Challenge_Report_CVPRW_2024_paper.pdf">PDF</a> | 
+                                <a href="https://github.com/jennerz0/EERN">Code</a>
+                            </span>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <hr />
+                <div id="internships-content" class="content-block" style="display:none;">
+                    <hr />
+                    <h2 id="internships-section">💻Internships</h2>
+                    <ul style="list-style: none; padding-left: 0; margin-top: 10px; margin-bottom: 20px;">
+                        <li style="margin-bottom: 18px;">
+                            <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap;">
+                                <div style="flex:1; min-width:260px;">
+                                    <a href="https://seelab.ucsd.edu/">System Energy Efficiency Lab</a>@<a href="https://ucsd.edu/">University of California, San Diego</a>, San Diego, USA
+                                </div>
+                                <div style="text-align:right; flex-shrink:0; min-width:160px;">April 2025 – Current</div>
+                            </div>
+                            <div style="margin-top:5px;">
+                                Research Assistant<br>
+                                Advisor: <a href="https://cseweb.ucsd.edu/~trosing/">Tajana Rosing</a><br>
+                                Topic: Computational Photography
+                            </div>
+                        </li>
+                    </ul>
 
-            <h2 id="internships-section">💻Internships</h2>
-            <ul style="list-style: none; padding-left: 0; margin-top: 10px; margin-bottom: 20px;">
-                <li style="margin-bottom: 18px;">
-                    <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap;">
-                        <div style="flex:1; min-width:260px;">
-                            <a href="https://seelab.ucsd.edu/">System Energy Efficiency Lab</a>@<a href="https://ucsd.edu/">University of California, San Diego</a>, San Diego, USA
-                        </div>
-                        <div style="text-align:right; flex-shrink:0; min-width:160px;">April 2025 – Current</div>
-                    </div>
-                    <div style="margin-top:5px;">
-                        Research Assistant<br>
-                        Advisor: <a href="https://cseweb.ucsd.edu/~trosing/">Tajana Rosing</a><br>
-                        Topic: Computational Photography
-                    </div>
-                </li>
-            </ul>
+                    <ul style="list-style: none; padding-left: 0; margin-top: 10px; margin-bottom: 20px;">
+                        <li style="margin-bottom: 18px;">
+                            <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap;">
+                                <div style="flex:1; min-width:260px;">
+                                    <a href="https://pi-lab.xyz/">π Research Group</a>@<a href="https://en.nankai.edu.cn/">Nankai University</a>, Tianjin, China
+                                </div>
+                                <div style="text-align:right; flex-shrink:0; min-width:160px;">January 2024 – September 2024</div>
+                            </div>
+                            <div style="margin-top:5px;">
+                                Research Assistant<br>
+                                Advisor: <a href="https://li-chongyi.github.io/">Chongyi Li</a> and <a href="https://mmcheng.net/clguo/">Chunle Guo</a><br>
+                                Topic: Video Enhancement, Underwater Imaging and Generation.
+                            </div>
+                        </li>
+                    </ul>
 
-            <ul style="list-style: none; padding-left: 0; margin-top: 10px; margin-bottom: 20px;">
-                <li style="margin-bottom: 18px;">
-                    <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap;">
-                        <div style="flex:1; min-width:260px;">
-                            <a href="https://pi-lab.xyz/">π Research Group</a>@<a href="https://en.nankai.edu.cn/">Nankai University</a>, Tianjin, China
-                        </div>
-                        <div style="text-align:right; flex-shrink:0; min-width:160px;">January 2024 – September 2024</div>
-                    </div>
-                    <div style="margin-top:5px;">
-                        Research Assistant<br>
-                        Advisor: <a href="https://li-chongyi.github.io/">Chongyi Li</a> and <a href="https://mmcheng.net/clguo/">Chunle Guo</a><br>
-                        Topic: Video Enhancement, Underwater Imaging and Generation.
-                    </div>
-                </li>
-            </ul>
+                    <ul style="list-style: none; padding-left: 0; margin-top: 10px; margin-bottom: 20px;">
+                        <li style="margin-bottom: 18px;">
+                            <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap;">
+                                <div style="flex:1; min-width:260px;">
+                                    <a href="https://ci.hfut.edu.cn/info/1162/14469.htm">Lab for Media Computing</a>@<a href="http://www.hfut.edu.cn/">Hefei University of Technology</a>, Hefei, China
+                                </div>
+                                <div style="text-align:right; flex-shrink:0; min-width:160px;">March 2023 – December 2023</div>
+                            </div>
+                            <div style="margin-top:5px;">
+                                Research Assistant<br>
+                                Advisor: <a href="https://sites.google.com/site/cszzhang">Zhao Zhang</a><br>
+                                Topic: Image Restoration, Model Compression and Efficient Architectures.
+                            </div>
+                        </li>
+                    </ul>
+                </div>
 
-            <ul style="list-style: none; padding-left: 0; margin-top: 10px; margin-bottom: 20px;">
-                <li style="margin-bottom: 18px;">
-                    <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap;">
-                        <div style="flex:1; min-width:260px;">
-                            <a href="https://ci.hfut.edu.cn/info/1162/14469.htm">Lab for Media Computing</a>@<a href="http://www.hfut.edu.cn/">Hefei University of Technology</a>, Hefei, China
-                        </div>
-                        <div style="text-align:right; flex-shrink:0; min-width:160px;">March 2023 – December 2023</div>
-                    </div>
-                    <div style="margin-top:5px;">
-                        Research Assistant<br>
-                        Advisor: <a href="https://sites.google.com/site/cszzhang">Zhao Zhang</a><br>
-                        Topic: Image Restoration, Model Compression and Efficient Architectures.
-                    </div>
-                </li>
-            </ul>
+            </div> 
         </section>
     </div>
+
+    <script src="stylesheets/script.js"></script>
 </body>
 </html>
