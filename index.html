@@ -38,7 +38,6 @@
             background-color: #fff; 
         }
 
-
         .left-panel {
             position: sticky; 
             top: 40px; 
@@ -90,7 +89,6 @@
         .social-icons a:hover {
             color: #007bff;
         }
-
 
         .right-content {
             flex-grow: 1;
@@ -153,7 +151,6 @@
             color: #0066cc;
         }
 
-
         ul[style*="list-style: none"] {
             margin-top: 10px;
             margin-bottom: 20px;
@@ -172,7 +169,6 @@
             font-size: 15px;
             color: #444;
         }
-
 
         @media (max-width: 992px) {
             .main-layout {
@@ -248,6 +244,8 @@
 
             <div class="container">
                 <h2 id="publications-section">🖨️Publications & Preprints</h2>
+
+                <!-- #1 Publication (unchanged) -->
                 <div class="publication">
                     <img src="logo/waterwave_logo.png" alt="WaterWave logo" class="publogo">
                     <div class="publication-details">
@@ -263,6 +261,30 @@
                     </div>
                 </div>
 
+                <!-- (Second item moved to Challenge Reports) -->
+
+                <!-- #2 (original #3) Publication -->
+                <div class="publication">
+                    <img src="./logo/regformer_logo.png" alt="Regformer logo" class="publogo">
+                    <div class="publication-details">
+                        <strong><a href="#">Exploiting Regional Information Transformer for Single Image Deraining</a></strong>
+                        <br>
+                        <em><b>TMM, 2026</b></em>
+                        <br>
+                        Baiang Li, Zhao Zhang, Huan Zheng, Xiaogang Xu, Yanyan Wei, Jingyi Zhang, Jicong Fan, and Meng Wang.
+                        <br>
+                        <span class="links">
+                            <a href="https://arxiv.org/pdf/2402.16033">PDF</a> | <a href="https://github.com/ztMotaLee/Regformer">Code</a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <hr />
+
+            <div class="container">
+                <h2 id="challenge-reports-section">🏆 Challenge Reports</h2>
+
                 <div class="publication">
                     <img src="logo/eern_logo.png" alt="EERN logo" class="publogo">
                     <div class="publication-details">
@@ -273,22 +295,8 @@
                         Jingyi Zhang, Baiang Li, Qi Zhu, Xiaogang Xu, Dan Guo, and Chunle Guo.
                         <br>
                         <span class="links">
-                            <a href="https://openaccess.thecvf.com/content/CVPR2024W/NTIRE/papers/Ren_The_Ninth_NTIRE_2024_Efficient_Super-Resolution_Challenge_Report_CVPRW_2024_paper.pdf">PDF</a> | <a href="https://github.com/jennerz0/EERN">Code</a>
-                        </span>
-                    </div>
-                </div>
-
-                <div class="publication">
-                    <img src="./logo/regformer_logo.png" alt="Regformer logo" class="publogo">
-                    <div class="publication-details">
-                        <strong><a href="#">Exploiting Regional Information Transformer for Single Image Deraining</a></strong>
-                        <br>
-                        <em><b>TMM, 2025</b></em>
-                        <br>
-                        Baiang Li, Zhao Zhang, Huan Zheng, Xiaogang Xu, Yanyan Wei, Jingyi Zhang, Jicong Fan, and Meng Wang.
-                        <br>
-                        <span class="links">
-                            <a href="https://arxiv.org/pdf/2402.16033">PDF</a> | <a href="https://github.com/ztMotaLee/Regformer">Code</a>
+                            <a href="https://openaccess.thecvf.com/content/CVPR2024W/NTIRE/papers/Ren_The_Ninth_NTIRE_2024_Efficient_Super-Resolution_Challenge_Report_CVPRW_2024_paper.pdf">PDF</a> | 
+                            <a href="https://github.com/jennerz0/EERN">Code</a>
                         </span>
                     </div>
                 </div>
@@ -340,7 +348,7 @@
                     <div style="margin-top:5px;">
                         Research Assistant<br>
                         Advisor: <a href="https://sites.google.com/site/cszzhang">Zhao Zhang</a><br>
-                        Topic: Computational Photography
+                        Topic: Image Restoration, Model Compression and Efficient Architectures.
                     </div>
                 </li>
             </ul>
